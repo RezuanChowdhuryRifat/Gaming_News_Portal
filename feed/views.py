@@ -1,17 +1,25 @@
 from django.contrib import messages
 from django import forms
 from django.forms.forms import Form
-from django.views.generic import TemplateView, DetailView, FormView
+from django.views.generic import TemplateView, DetailView, FormView,ListView
 from .forms import PostForm
 from .models import Post
 
-class HomePageView(TemplateView):
-    template_name = "home.html"
+# class HomePageView(TemplateView):
+#     template_name = "home.html"
 
-    def get_context_data(self, **kwargs):
-      context = super().get_context_data(**kwargs)
-      context['posts'] = Post.objects.all().order_by('-id') 
-      return context  
+#     def get_context_data(self, **kwargs):
+#       context = super().get_context_data(**kwargs)
+#       context['posts'] = Post.objects.all().order_by('-id') 
+#       return context  
+
+class HomePageView(ListView):
+  http_method_names=["get"]
+  model =Post
+  template_name="home.html"
+  context_object_name="posts"
+  queryset = Post.objects.all().order_by('-id')[0:30]
+
 
 class PostDetailView(DetailView):
   template_name = "detail.html"
