@@ -25,10 +25,13 @@
                 <a class="nav-link" href="/post">Post</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"></a>
+                <a class="nav-link" href="/signup">Signup</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"></a>
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
               </li>
             </ul>
             <form class="d-flex">
@@ -43,14 +46,14 @@
       <div class="bg-success bd-gradient text-center text-white py-4">
       <ul class="messages">
           {% for message in messages %}
-          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
           {% endfor %}
       </ul>
     </div>
 </div>
       {% endif %}
 
- 
+      {% block body%} {% endblock%} 
     
     <div style="margin: 20px;">
     <span class="text-danger">New Post <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
