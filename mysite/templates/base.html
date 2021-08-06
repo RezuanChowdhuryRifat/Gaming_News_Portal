@@ -24,15 +24,23 @@
               <li class="nav-item">
                 <a class="nav-link" href="/post">Post</a>
               </li>
+            
+              {% if request.user.is_authenticated%}
               <li class="nav-item">
-                <a class="nav-link" href="/signup">Signup</a>
+                <a class="nav-link" href="/logout">Logout</a>
               </li>
+
+              {% else %}
+              
+              <li class="nav-item">
+                  <a class="nav-link" href="/signup">Signup</a>
+              </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="/login">Login</a>
               </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout</a>
-              </li>
+
+              {% endif %}
             </ul>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
