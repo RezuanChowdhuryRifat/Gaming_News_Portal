@@ -1,7 +1,7 @@
 # Gaming News Portal
 
 
-Simple gaming news portal where user can post with image, see details of posts.
+Simple gaming news portal where user can post with image, see details of posts. (Learning with project)
 
 
 **Components:**
